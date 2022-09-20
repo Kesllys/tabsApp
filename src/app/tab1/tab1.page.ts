@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -7,18 +7,20 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  nome = '';
+  email = '';
+  celular = '';
 
-  constructor(private toastController: ToastController) {}
-
-  async mostrarToast() {
-    const toast = await this.toastController.create({
-      message: 'Hello World!',
-      duration: 1500,
-      color: 'danger',
-      position: 'middle'
+  constructor(private alertController: AlertController) {}
+  async mostrarAlerta() {
+    const alert = await this.alertController.create({
+      header: 'Alerta',
+      subHeader: 'Mensagem Importante',
+      message: '<p><b>Nome: </b>' + this.nome + '<p><b>E-mail: </b>'+ this.email + '<p><b>Celular: </b>' + this.celular + '</p>',
+      buttons: ['OK'],
     });
 
-    await toast.present();
+    await alert.present();
   }
-
 }
+

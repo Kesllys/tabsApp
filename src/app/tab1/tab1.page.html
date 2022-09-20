@@ -6,9 +6,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="light">
-  <ion-button color="danger" (click)="mostrarToast()">Click Aqui!!!</ion-button> 
-  <ion-item color="light">
+<ion-content [fullscreen]="true">
+    <ion-item color="white">
+      <ion-label position="floating">Digite seu nome</ion-label>
+      <ion-input [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item color="white">
+      <ion-label position="floating">Digite seu e-mail</ion-label>
+      <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item color="white">
+      <ion-label position="floating">Digite seu celular</ion-label>
+      <ion-input [(ngModel)]="celular"></ion-input>
+    </ion-item>
+
+    <ion-item color="white">
+      <ion-button (click)="mostrarAlerta()">Clique aqui</ion-button>
+    </ion-item>
+
+    <ion-item color="white">
     <ion-avatar slot="start">
       <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
     </ion-avatar>
