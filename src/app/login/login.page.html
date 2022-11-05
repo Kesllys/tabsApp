@@ -6,26 +6,31 @@
 
 <ion-content>
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-
-    </ion-card-header>
-
-
+    <form [formGroup]="formLogin" >
     <ion-card-content>
       <ion-item>
         <ion-label>E-mail:</ion-label>
       </ion-item>
       <ion-item>
-      <ion-input></ion-input>
+      <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Senha:</ion-label>
     </ion-item>
     <ion-item>
-    <ion-input></ion-input>
+    <ion-input type="password" formControlName="senha"></ion-input>
   </ion-item>
     </ion-card-content>
+    </form>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-button fill="outline" size="default">Entrar</ion-button>
+      <ion-button fill="outline" size="default">Cancelar</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button fill="outline" size="small">Registrar</ion-button>
+      <ion-button fill="outline">Esqueceu senha</ion-button>
+    </ion-item>
   </ion-card>
 </ion-content>
