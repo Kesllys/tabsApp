@@ -6,31 +6,35 @@
 
 <ion-content>
   <ion-card>
-    <form [formGroup]="formLogin" >
-    <ion-card-content>
+    <form [formGroup]="formLogin">
       <ion-item>
         <ion-label>E-mail:</ion-label>
+        <ion-input type="email" formControlName="email">
+          <ng-container *ngFor="let erro of mensagensErro.email">
+            <span
+            class="msg-erro"
+            *ngIf="email.errors?.[erro.tipo] && (email.dirty || email.touched)"
+          >
+            {{erro.aviso}}
+          </span>
+          </ng-container>
+        </ion-input>
       </ion-item>
       <ion-item>
-      <ion-input type="email" formControlName="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Senha:</ion-label>
-    </ion-item>
-    <ion-item>
-    <ion-input type="password" formControlName="senha"></ion-input>
-  </ion-item>
-    </ion-card-content>
+        <ion-label>Senha:</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
     </form>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-button fill="outline" size="default">Entrar</ion-button>
-      <ion-button fill="outline" size="default">Cancelar</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button fill="outline" size="small">Registrar</ion-button>
-      <ion-button fill="outline">Esqueceu senha</ion-button>
-    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="outline">Entrar</ion-button>
+          <ion-button expand="block" fill="outline">Registrar</ion-button>
+          <ion-button fill="outline" expand="block">Cancelar</ion-button>
+          <ion-button fill="outline" expand="block">Esqueceu senha</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card>
 </ion-content>
