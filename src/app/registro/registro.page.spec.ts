@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { RegistroPage } from './registro.page';
 
-describe('RegistroPage', () => {
+describe('LoginPage', () => {
   let component: RegistroPage;
   let fixture: ComponentFixture<RegistroPage>;
 
@@ -22,3 +22,4 @@ describe('RegistroPage', () => {
     expect(component).toBeTruthy();
   });
 });
+

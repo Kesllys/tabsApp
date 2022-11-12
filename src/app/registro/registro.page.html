@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>registro</ion-title>
+    <ion-title>Faça seu Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <form [formGroup]="formRegistro">
+      <ion-item>
+        <ion-label>E-mail:</ion-label>
+        <ion-input type="email" formControlName="email">
+          <ng-container *ngFor="let erro of mensagensErro.email">
+            <span
+            class="msg-erro"
+            *ngIf="email.errors?.[erro.tipo] && (email.dirty || email.touched)"
+          >
+            {{erro.aviso}}
+          </span>
+          </ng-container>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Senha:</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
+    </form>
 
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" fill="outline">Entrar</ion-button>
+          <ion-button expand="block" fill="outline">Registrar</ion-button>
+          <ion-button fill="outline" expand="block">Cancelar</ion-button>
+          <ion-button fill="outline" expand="block">Esqueceu senha</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>
+
