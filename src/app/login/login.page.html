@@ -1,40 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Faça seu login</ion-title>
+    <ion-title>Faça seu Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <form [formGroup]="formLogin">
-      <ion-item>
-        <ion-label>E-mail:</ion-label>
-        <ion-input type="email" formControlName="email">
-          <ng-container *ngFor="let erro of mensagensErro.email">
-            <span
-            class="msg-erro"
-            *ngIf="email.errors?.[erro.tipo] && (email.dirty || email.touched)"
-          >
-            {{erro.aviso}}
-          </span>
-          </ng-container>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Senha:</ion-label>
-        <ion-input type="password" formControlName="senha"></ion-input>
-      </ion-item>
-    </form>
+  <ion-item>
+    <ion-img src="https://pop.proddigital.com.br/wp-content/uploads/sites/8/2022/07/joe-quinn-as-eddie-munson-in-stranger-things-4.jpg"></ion-img>
+  </ion-item>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-button expand="block" fill="outline">Entrar</ion-button>
-          <ion-button expand="block" fill="outline">Registrar</ion-button>
-          <ion-button fill="outline" expand="block">Cancelar</ion-button>
-          <ion-button fill="outline" expand="block">Esqueceu senha</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+  <form [formGroup]="formLogin">
+    <ion-item fill="outline">
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ng-container *ngFor="let erro of mensagemErro.email">
+      <ion-label
+        class="msg-erro"
+        *ngIf="email.errors?.[erro.tipo] &&(email.dirty || email.touched)"
+        >{{erro.aviso}}</ion-label
+      >
+    </ng-container>
+    <ion-item fill="outline">
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="password" formControlName="senha"></ion-input>
+    </ion-item>
+    <ng-container *ngFor="let erro of mensagemErro.senha">
+      <ion-label
+        class="msg-erro"
+        *ngIf="senha.errors?.[erro.tipo] &&(senha.dirty || senha.touched)"
+        >{{erro.aviso}}</ion-label
+      >
+    </ng-container>
+  </form>
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" color="dark">Registrar</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="entrar()" expand="block" color="danger">Entrar</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-button fill="outline" expand="block" color="dark"
+    >Esqueceu a Senha</ion-button
+  >
 </ion-content>

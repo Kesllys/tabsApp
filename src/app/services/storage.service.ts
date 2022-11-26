@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 
@@ -5,30 +6,30 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root',
 })
 export class StorageService {
-  //cria uma variável que pode ser nula
+  //Criando variavel do tipo Storage que pode ser nula.
   private _storage: Storage | null = null;
 
-  //cria a estância do storage para usarmos o storage do ionic
+  //Cria Instância do Storage.
   constructor(private storage: Storage) {
-    //chama a função init 
+    //Chama a Função Init na hora que o serviço é iniciado.
     this.init();
   }
-
   async init() {
-    //incializa o banco de dados a partir do método create
+    //Inicia o banco de Dados e Verifica se já existe ou não e o cria.
     const storage = await this.storage.create();
     this._storage = storage;
   }
 
-  // set guarda | get pega; precisa de chave e valor
+  //Salva valor no storage se ele existir.
   public set(key: string, value: any) {
     this._storage?.set(key, value);
   }
-  public get(key: string){
+
+  public get(key: string) {
     return this._storage?.get(key);
   }
 
-  async remove(key: string){
-    await this._storage.remove(key);
+  public async remove(key: string) {
+    await this._storage?.remove(key);
   }
 }

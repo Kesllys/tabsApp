@@ -1,9 +1,10 @@
+
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { RegistroPage } from './registro.page';
 
-describe('LoginPage', () => {
+describe('RegistroPage', () => {
   let component: RegistroPage;
   let fixture: ComponentFixture<RegistroPage>;
 
@@ -22,4 +23,3 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 });
-
